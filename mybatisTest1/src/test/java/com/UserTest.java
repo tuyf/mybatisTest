@@ -1,9 +1,15 @@
 package com;
 
 import model.Person;
+import org.apache.ibatis.executor.result.DefaultResultHandler;
+import org.apache.ibatis.reflection.Reflector;
+import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import utils.MybatisUtil;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 
 public class UserTest {
 
@@ -23,6 +29,12 @@ public class UserTest {
         person.setMobilePhone(mobilePhone);
         try{
             sqlSession.insert("insertPerson",person);
+//            void select(String statement, ResultHandler handler);
+//            String statement = "select * from person";
+//            ResultHandler handler = new DefaultResultHandler();
+//            handler
+//            sqlSession.select(statement,handler);
+            sqlSession.selectOne("queryById",1);
             sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
@@ -49,6 +61,19 @@ public class UserTest {
 
     }
 
+    public static void main(String[] args) {
+
+        Reflector reflector = new Reflector(Person.class);
+        System.out.println("借宿");
+
+        Constructor<?> con =  reflector.getDefaultConstructor();
+        System.out.println("借宿222");
+
+        Field[] fields = reflector.getClass().getDeclaredFields();
+        System.out.println("借宿222333");
+
+//        reflector.getClassMethod(Person.class);
+    }
 
 }
 
