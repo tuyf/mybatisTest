@@ -1,5 +1,6 @@
 package com.testReflect;
 public class FieldDemo {
+//private class FieldDemo {
     public int num1 = 1;
     protected int num2 = 2;
     int num3 = 3;

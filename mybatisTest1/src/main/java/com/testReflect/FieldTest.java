@@ -5,7 +5,9 @@ import java.lang.reflect.Modifier;
 
 public class FieldTest {
     public static void main(String[] args) throws Exception {
-        //使用反射第一步:获取操作类FieldDemo所对应的Class对象
+
+//        FieldDemo fieldDemo1 = new  FieldDemo();
+                //使用反射第一步:获取操作类FieldDemo所对应的Class对象
         Class<?> cls = Class.forName("com.testReflect.FieldDemo");
         //使用FieldDemo类的class对象生成 实例
         Object obj = cls.newInstance();

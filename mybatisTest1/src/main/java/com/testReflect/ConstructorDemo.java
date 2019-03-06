@@ -8,7 +8,12 @@ public class ConstructorDemo {
         str = "xixi";
     }
 
-    public ConstructorDemo(int num,String str){
+//    public ConstructorDemo(int num,String str){
+//        this.num = num;
+//        this.str = str;
+//    }
+
+    private ConstructorDemo(int num,String str){
         this.num = num;
         this.str = str;
     }
